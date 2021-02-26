@@ -1,0 +1,25 @@
+server:
+  port: 19002
+
+spring:
+  application:
+      name: microserver-product
+  profiles:
+    active: test
+
+mybatis:
+  mapper-locations: classpath:/mapper/*
+  configuration:
+    map-underscore-to-camel-case: true
+
+management:
+  health:
+    redis:
+      enabled: false
+ribbon:
+  ReadTimeout: 1000
+  ConnectTimeout: 1000
+
+business:
+  name: rgmap
+  experiedTime: 60000

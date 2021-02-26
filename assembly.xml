@@ -1,0 +1,47 @@
+<assembly>
+    <id>release</id>
+    <formats>
+        <format>tar.gz</format>
+        <!--        <format>zip</format>-->
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <dependencySets>
+        <dependencySet>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+            <outputDirectory>lib</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <fileSet>
+            <directory>target/classes</directory>
+            <outputDirectory>classes</outputDirectory>
+            <excludes>
+                <exclude>*.*</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>conf</outputDirectory>
+        </fileSet>
+        <!--    将项目启动jar打包到boot目录中    -->
+<!--        <fileSet>-->
+<!--            <directory>${basedir}/target</directory>-->
+<!--            <outputDiretory>bin</outputDiretory>-->
+<!--            <fileMode>0755</fileMode>-->
+<!--            <includes>-->
+<!--                <include>${project.build.finalName}.jar</include>-->
+<!--            </includes>-->
+<!--        </fileSet>-->
+    </fileSets>
+    <files>
+        <file>
+            <source>target/${project.build.finalName}.jar</source>
+            <destName>app.jar</destName>
+            <outputDirectory>bin</outputDirectory>
+        </file>
+    </files>
+</assembly>
